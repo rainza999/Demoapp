@@ -1,0 +1,68 @@
+{{define "navbar"}}
+
+<nav class="navbar is-primary is-fixed-top">
+    <div
+      class="
+        is-flex is-justify-content-space-between
+        w-full
+        px-1
+        py-3
+        late-gray-bg
+      "
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#"
+          ><img src="favicon.ico" width="28" height="28" />
+          <p class="title has-text-primary">FIVE</p>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#about"> About </a>
+          <a class="navbar-item" href="#achievement"> Achievements </a>
+          <a class="navbar-item" href="#skills">Skills </a>
+          <a class="navbar-item" href="#portfolio">Portfolio </a>
+          <a class="navbar-item" href="#contact">Contact </a>
+          <span class="navbar-item">
+            <a
+              class="button is-primary"
+              href="https://github.com/heksagonnet/five/archive/refs/heads/main.zip"
+            >
+              <span class="iconify" data-icon="fe:github"></span>
+              <span>Download</span>
+            </a>
+          </span>
+        </div>
+      </div>
+      <span class="navbar-burger" data-target="navbarMenuHeroB">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+    <div id="navbarMenuHeroB" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item mobile-menu" href="#about"> About </a>
+        <a class="navbar-item mobile-menu" href="#achievement">
+          Achievements
+        </a>
+        <a class="navbar-item mobile-menu" href="#skills">Skills </a>
+        <a class="navbar-item mobile-menu" href="#portfolio"
+          >Portfolio
+        </a>
+        <a class="navbar-item mobile-menu" href="#contact">Contact </a>
+        <span class="navbar-item is-flex is-justify-content-center">
+          <a
+            class="button is-primary"
+            href="https://github.com/heksagonnet/five/archive/refs/heads/main.zip"
+          >
+            <span class="iconify" data-icon="fe:github"></span>
+            <span>Download</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </nav>
+
+{{end}}

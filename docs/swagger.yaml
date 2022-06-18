@@ -1,0 +1,364 @@
+definitions:
+  controllers.ChangePasswordInput:
+    properties:
+      current:
+        type: string
+      new:
+        type: string
+      retype_new:
+        type: string
+    required:
+    - current
+    - new
+    - retype_new
+    type: object
+  controllers.ContactInput:
+    properties:
+      email:
+        type: string
+      msg:
+        type: string
+      name:
+        type: string
+      subject:
+        type: string
+    required:
+    - email
+    - name
+    type: object
+  controllers.LoginInput:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  controllers.RegisterInput:
+    properties:
+      name:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - name
+    - password
+    - username
+    type: object
+  models.Response:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      response: {}
+    type: object
+  models.ResponsePage:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      pagination: {}
+      response: {}
+    type: object
+info:
+  contact:
+    email: navaminsawasdee@gmail.com
+    name: Mr.Navamin Sawasdee
+  description: Demoapp develop a RESTful API with Go 1.18 (Gin framework)
+  license:
+    name: Copyright © 2022 By Navamin Sawasdee. All rights reserved.
+  title: Demoapp API
+  version: "1.0"
+paths:
+  /api/v1:
+    get:
+      description: Check API server status
+      operationId: PingGetHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Ping
+  /api/v1/about:
+    get:
+      description: Get Personal, Interests and References
+      operationId: AboutGetHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - About
+  /api/v1/contact:
+    post:
+      description: I will contact you soon
+      operationId: ContactPostHandlerApi
+      parameters:
+      - description: Contact me
+        in: body
+        name: contact
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.ContactInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Contact
+  /api/v1/demo/account:
+    get:
+      description: list users
+      operationId: AccountGetHandler
+      parameters:
+      - description: name search by create start date (yyyy-mm-dd)
+        format: datetime
+        in: query
+        name: st
+        type: string
+      - description: name search by create end date (yyyy-mm-dd)
+        format: datetime
+        in: query
+        name: et
+        type: string
+      - description: name sort asc or desc
+        format: string
+        in: query
+        name: sort
+        type: string
+      - description: name search by page
+        format: int
+        in: query
+        name: page
+        type: integer
+      - description: name search by limit
+        format: int
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponsePage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ResponsePage'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.ResponsePage'
+      security:
+      - Bearer: []
+      tags:
+      - Account
+  /api/v1/demo/login:
+    post:
+      description: Login as Demo App
+      operationId: LoginPostHandler
+      parameters:
+      - description: Request username, password and return access token(JWT)
+        in: body
+        name: authen
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.LoginInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Authentication
+  /api/v1/demo/register:
+    post:
+      description: Register for Authentication as Demo App
+      operationId: RegisterPostHandler
+      parameters:
+      - description: Request username, password and name
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.RegisterInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Register
+  /api/v1/demo/thirdparty/coingecko/coins/markets:
+    get:
+      description: Get coins market data as CoinGecko API
+      operationId: GeckoGetHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Coins
+  /api/v1/demo/user/logout:
+    delete:
+      description: Logout and delete access token
+      operationId: LogoutDelHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+      security:
+      - Bearer: []
+      tags:
+      - Authentication
+  /api/v1/demo/user/profile:
+    get:
+      description: My Profile
+      operationId: ProfileGetHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+      security:
+      - Bearer: []
+      tags:
+      - Authentication
+    patch:
+      description: reset password as Demo App
+      operationId: PasswordPatchHandler
+      parameters:
+      - description: Reset password
+        in: body
+        name: password
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.ChangePasswordInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Ok
+          schema:
+            $ref: '#/definitions/models.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/models.Response'
+      security:
+      - Bearer: []
+      tags:
+      - Authentication
+  /api/v1/experience:
+    get:
+      description: Get Education, Experience and Portfolio
+      operationId: ExperiencesGetHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Experience
+  /api/v1/skill:
+    get:
+      description: Get Technical Skills and Tools
+      operationId: SkillGetHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Skills
+schemes:
+- http
+- https
+securityDefinitions:
+  Bearer:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

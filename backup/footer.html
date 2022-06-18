@@ -1,0 +1,77 @@
+{{define "footer"}}
+<footer class="footer late-gray-bg custom-font">
+    <div class="content has-text-centered">
+      <p class="font-light">
+        <strong class="has-text-primary">Bulma</strong> by
+        <a class="has-text-primary" href="https://jgthms.com">Jeremy Thomas</a
+        >. The source code is licensed
+        <a
+          class="has-text-primary"
+          href="http://opensource.org/licenses/mit-license.php"
+          >MIT</a
+        >. The website content is licensed
+        <a
+          class="has-text-primary"
+          href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+          >CC BY NC SA 4.0</a
+        >.
+      </p>
+    </div>
+    <div class="content has-text-centered">
+      <p class="font-light subtitle">
+        Designed with ❤ by
+        <a class="has-text-primary" href="https://www.heksagon.net"
+          >Heksagon</a
+        >
+        &copy;
+        <span id="year"></span>
+      </p>
+    </div>
+    <div class="content has-text-centered">
+      <a href="https://bulma.io/">
+        <img
+          style="width: 200px"
+          src="https://bulma.io/images/made-with-bulma--dark.png"
+          alt=""
+        />
+      </a>
+    </div>
+  </footer>
+  <!-- End Footer -->
+  <!-- Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(
+        document.querySelectorAll('.navbar-burger'),
+        0,
+      )
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach((el) => {
+          el.addEventListener('click', () => {
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target
+            const $target = document.getElementById(target)
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active')
+            $target.classList.toggle('is-active')
+          })
+        })
+      }
+    })
+
+    document.getElementById('year').innerHTML = new Date().getFullYear()
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init()
+  </script>
+  <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+  <!-- End Script -->
+</body>
+</html>
+{{end}}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Navamin Sawasdee</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/41752586-476b0b24-7596-11e8-95fe-8fd3faa21e8a.png" rel="icon">
+  <link href="assets/img/41752586-476b0b24-7596-11e8-95fe-8fd3faa21e8a.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header">
+    <div class="container">
+      <h1><a href="/">Navamin Sawasdee</a></h1>
+      <h2>I'm a <span>software developer</span> with over 5 years experience.</h2>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link active" href="#header">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#apidocument">API Document</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+      <div class="social-links">
+        <a href="https://www.facebook.com/navamin.sawasdee" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/navamiin" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://line.me/ti/p/Vqcl6xVFCm" class="linkedin"><i class="bi bi-line"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <div class="about-me container">
+      <div class="section-title">
+        <h2>About</h2>
+        <p>Personal</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <img src="{{ .personal.Img }}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>{{ .personal.Newjob }}</h3>
+          <p>
+          {{ .about.Detail1 }}
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{ .personal.Birthday }}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{ .personal.Website }}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{ .personal.Tel }}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Addr:</strong> <span>{{ .personal.Addr }}</span></li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{ .personal.Age }}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{ .personal.Degree }}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ .personal.Email }}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Job:</strong> <span>{{ .personal.Job }}</span></li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            {{ .about.Detail2 }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="interests container">
+      <div class="section-title">
+        <h2>Interests</h2>
+      </div>
+      <div class="row">
+        {{ range .interest }}
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <h3>{{ .Name }}</h3>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="resume">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>Timeline</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="resume-title">Education</h3>
+          <div class="resume-item">
+            <h4>{{ .education.Degree }}</h4>
+            <h5>{{ .education.Sd }} - {{ .education.Ed }}</h5>
+            <p><em>{{ .education.Major }}, {{ .education.University }}</em></p>
+            <p>{{ .education.Detail }}</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="resume-title">Experiences</h3>
+          {{ range .experiences }}
+          <div class="resume-item">
+            <h4>{{ .Job }}</h4>
+            <h5>{{ .Sd }} - {{ .Ed }}</h5>
+            <p><em>{{ .Organization }}</em></p>
+            <p>{{ .Detail }}</p>
+            <p>
+              {{ with $1:=.JobDescription }}
+            <ul>
+              {{ range $1 }}
+              <li>{{ .Detail }}</li>
+            {{ end }}
+            </ul>
+            {{ end }}
+            </p>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Skills</h2>
+        <p>Technical Skills</p>
+      </div>
+      <div class="row">
+        {{ range .skills }}
+        <div class="col-lg-4 col-md-6 col-12 col-sm-6 d-flex align-items-stretch mt-4">
+          <div class="icon-box col-lg-12 col-md-12 col-12">
+            <div class="icon"><i class="{{ .Class }}"></i></div>
+            <h4><a href="">{{ .Name }}</a></h4>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="interests container">
+      <div class="section-title">
+        <h2>Tools</h2>
+      </div>
+      <div class="row">
+        {{ range .tools }}
+        <div class="col-lg-3 col-md-4 mt-4 col-12 col-sm-6">
+          <div class="icon-box justify-content-center">
+            <h3>{{ .Name }}</h3>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section id="apidocument" class="portfolio">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>API Document</h2>
+        <p>Demo API V1</p>
+      </div>
+        <div class="col-lg-12 col-md-12">
+          <iframe class="mb-3 vh-100" src="{{ .personal.Website }}/swagger/index.html" width="100%" height="100%" marginheight="0" frameborder="0" border="0" scrolling="auto" onload="autoResize(this);"></iframe>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Contact</p>
+      </div>
+
+      <div class="row mt-2">
+
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>Address</h3>
+            <p>Khwaeng Samsen Nai, Khet Phaya Thai, Krung Thep Maha Nakhon 10400, Thailand</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-share-alt"></i>
+            <h3>Social</h3>
+            <div class="social-links">
+              <a href="https://www.facebook.com/navamin.sawasdee" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/navamiin" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://line.me/ti/p/Vqcl6xVFCm" class="google-plus"><i class="bi bi-line"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email</h3>
+            <p>navaminsawasdee@gmail.com</p>
+          </div>
+        </div>
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-phone-call"></i>
+            <h3>Tel</h3>
+            <p>082-789-3384</p>
+          </div>
+        </div>
+      </div>
+
+      <form id="contact" action="{{ .personal.Website }}" method="POST" class="php-email-form mt-4" enctype="multipart/form-data" autocomplete="off">
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+        </div>
+        <div class="form-group mt-3">
+          <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
+        </div>
+        <div class="text-center"><button type="submit" id="send">Send Message</button></div>
+      </form>
+
+    </div>
+  </section>
+
+  <div class="credits">
+     Copyright © 2022 By <a href="{{ .personal.Website }}">Navamin Sawasdee.</a> All rights reserved.
+  </div>
+
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+   
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
