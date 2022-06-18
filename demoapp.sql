@@ -39,7 +39,6 @@ CREATE TABLE `contacts` (
 
 LOCK TABLES `contacts` WRITE;
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` VALUES ('07b47790-c112-4a0e-b372-25ffaeb24548','jann','jannbms@gmail.com','test','test','2022-06-13 23:18:45'),('990db710-a287-4417-a8b9-ecd6c033d80f','namin','navaminsawasdee@gmail.com','test','ทดสอบการส่งเมล์','2022-06-13 23:20:28'),('fa708744-2327-46db-bf76-f737e7a75f0e','jann','jannbms@gmail.com','test','test','2022-06-13 22:29:28');
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +70,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('105c29f3-e3bc-4acd-8ba2-fc0e770a9fa3','navamins1','$2a$10$t0XI83WlZCPBIbxpDSXBruJnUgLflpE8FTDNSPwEoAFGIwckG6HFe','Navamin Sawasdee','Y','105c29f3-e3bc-4acd-8ba2-fc0e770a9fa3','2022-06-12 12:45:34','105c29f3-e3bc-4acd-8ba2-fc0e770a9fa3','2022-06-12 12:45:34'),('7dc630c5-f0fd-4230-9f99-5b959496c8e3','navamins','$2a$10$ptsgHaPKJLi0aUm.A2Q8nekQypdypOM.8YYsEXJnMWB4OzH1ZieL.','Navamin Sawasdee','Y','7dc630c5-f0fd-4230-9f99-5b959496c8e3','2022-06-11 16:47:01','7dc630c5-f0fd-4230-9f99-5b959496c8e3','2022-06-12 12:48:07'),('af22e466-ae89-40c9-808a-77a9146c23a7','navamins3','$2a$10$Y5m0MsBvW.IKyT18Q2DZveXLeqQBvNmGAWSxokUQDpAjplZ9TMr5u','Navamin Sawasdee','Y','af22e466-ae89-40c9-808a-77a9146c23a7','2022-06-12 12:46:30','af22e466-ae89-40c9-808a-77a9146c23a7','2022-06-12 12:46:30'),('ce795d00-fb14-43d5-ac91-8dbc219974ed','navamins2','$2a$10$hV8./VGvFB8bY3Tw0cOlSOk6G85vABOBxw6YXETO.ML4gPyaP6DzO','Navamin Sawasdee','Y','ce795d00-fb14-43d5-ac91-8dbc219974ed','2022-06-12 12:50:32','ce795d00-fb14-43d5-ac91-8dbc219974ed','2022-06-12 12:50:32');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -84,4 +82,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-14 21:26:13
+-- Dump completed on 2022-06-18 21:17:54
