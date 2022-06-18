@@ -30,32 +30,29 @@ Content-Type: application/json
     "name": "namin",
     "email": "navaminsawasdee@gmail.com",
     "subject": "test",
-    "msg": "ทดสอบการส่งเมล์"
+    "msg": "message"
 }
 
 ############################################
 # API Demo Register
 ############################################
-@Name="Navamin Sawasdee"
 POST {{Host}}/api/v1/demo/register
 Content-Type: application/json
 
 {
-    "username": "navamins2",
+    "username": "navamins",
     "password": "P@ssw0rd",
-    "name": {{Name}}
+    "name": "Navamin Sawasdee"
 }
 
 ############################################
 # API Demo Login
 ############################################
-@Username="navamins"
-@Password="P@ssw0rd"
 POST {{Host}}/api/v1/demo/login
 Content-Type: application/json
 
 {
-    "username": "navamins2",
+    "username": "navamins",
     "password": "P@ssw0rd"
 }
 
@@ -75,8 +72,8 @@ Authorization: Bearer {{Token}}
 
 {
     "current": "P@ssw0rd",
-    "new": "P@ssw0rd",
-    "retype_new": "P@ssw0rd"
+    "new": "NewP@ssw0rd",
+    "retype_new": "NewP@ssw0rd"
 }
 
 ############################################
@@ -89,11 +86,7 @@ Authorization: Bearer {{Token}}
 ###############################################
 # Get list users order by name
 ###############################################
-
-#GET {{Host}}/api/v1/user/times?st={{Startdate}}&et={{Enddate}}&sort={{Sort}}&page={{Page}}&limit={{Limit}}
-#GET {{Host}}/api/v1/user/times?st={{Startdate}}&et={{Enddate}}&limit={{Limit}}
-#GET {{Host}}/api/v1/user/times?sort={{Sort}}&limit={{Limit}}
-GET {{Host}}/api/v1/demo/account?limit=1
+GET {{Host}}/api/v1/demo/account
 Content-Type: application/json
 Authorization: Bearer {{Token}}
 
