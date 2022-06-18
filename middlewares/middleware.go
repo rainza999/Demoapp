@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 	"resume/models"
-
 	"resume/utils/token"
 
 	"github.com/gin-gonic/gin"
