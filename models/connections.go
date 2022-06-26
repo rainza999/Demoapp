@@ -23,7 +23,6 @@ var (
 )
 
 func ConnectMysql() {
-
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Error("Error loading .env file")
@@ -39,11 +38,10 @@ func ConnectMysql() {
 	DBURL := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", DbUser, DbPassword, DbHost, DbPort, DbName)
 
 	DB, err = gorm.Open(Dbdriver, DBURL)
-
 	if err != nil {
-		log.Printf("Cannot connect to database: %s:%s\n", DbHost, DbPort)
+		log.Printf("Cannot connect to database: %s:%s", DbHost, DbPort)
 	} else {
-		log.Printf("Successfully connected to database: %s:%s\n", DbHost, DbPort)
+		log.Printf("Successfully connected to database: %s:%s", DbHost, DbPort)
 	}
 }
 
@@ -65,7 +63,6 @@ func ConnectRedis() {
 	})
 
 	pong, err := rdb.Ping(ctx).Result()
-
 	if err != nil || pong == "" {
 		log.WithFields(log.Fields{
 			"host":  RdHost,
