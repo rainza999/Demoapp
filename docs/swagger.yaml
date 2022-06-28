@@ -235,6 +235,25 @@ paths:
             $ref: '#/definitions/models.Response'
       tags:
       - Register
+  /api/v1/demo/thirdparty/bitkub/market/ticker:
+    get:
+      description: Get ticker information as Bitkub
+      operationId: BKTickerGetHandler
+      parameters:
+      - description: sym string The symbol (optional)
+        format: string
+        in: query
+        name: sym
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      tags:
+      - Bitkub
   /api/v1/demo/thirdparty/coingecko/coins/markets:
     get:
       description: Get coins market data as CoinGecko API
@@ -247,7 +266,7 @@ paths:
           schema:
             $ref: '#/definitions/models.Response'
       tags:
-      - Coins
+      - CoinsGecko
   /api/v1/demo/user/logout:
     delete:
       description: Logout and delete access token

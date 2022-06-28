@@ -265,6 +265,35 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v1/demo/thirdparty/bitkub/market/ticker": {
+            "get": {
+                "description": "Get ticker information as Bitkub",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Bitkub"
+                ],
+                "operationId": "BKTickerGetHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "format": "string",
+                        "description": "sym string The symbol (optional)",
+                        "name": "sym",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/demo/thirdparty/coingecko/coins/markets": {
             "get": {
                 "description": "Get coins market data as CoinGecko API",
@@ -272,7 +301,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Coins"
+                    "CoinsGecko"
                 ],
                 "operationId": "GeckoGetHandler",
                 "responses": {
