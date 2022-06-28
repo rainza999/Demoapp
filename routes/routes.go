@@ -32,6 +32,8 @@ func SetupRouter() *gin.Engine {
 		public.POST("/v1/contact", controllers.ContactPostHandlerApi)
 		// CoinGecko
 		public.GET("/v1/demo/thirdparty/coingecko/coins/markets", controllers.GeckoGetHandler)
+		// Bitkub
+		public.GET("/v1/demo/thirdparty/bitkub/market/ticker", controllers.BKTickerGetHandler)
 	}
 
 	private := r.Group("/api")
