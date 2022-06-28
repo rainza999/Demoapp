@@ -9,7 +9,7 @@ import (
 
 // GeckoGetHandler godoc
 // @Description	Get coins market data as CoinGecko API
-// @Tags Coins
+// @Tags CoinsGecko
 // @Id GeckoGetHandler
 // @Produce	json
 // @Success	200 {object} models.Response "OK"
