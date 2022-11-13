@@ -10,7 +10,7 @@ import (
 
 // @title Demoapp API
 // @version 1.0
-// @description Demoapp develop a RESTful API with Go 1.18 (Gin framework)
+// @description Demoapp develop a RESTful API with Go 1.17 (Gin framework)
 
 // @contact.name Mr.Navamin Sawasdee
 // @contact.email navaminsawasdee@gmail.com
@@ -23,7 +23,7 @@ import (
 // @in header
 // @name Authorization
 func main() {
-	models.ConnectMysql()
+	models.ConnectMySQL()
 	models.ConnectRedis()
 	models.ConnectMailer()
 
