@@ -598,7 +598,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "",
 	Schemes:          []string{"http", "https"},
 	Title:            "Demoapp API",
-	Description:      "Demoapp develop a RESTful API with Go 1.18 (Gin framework)",
+	Description:      "Demoapp develop a RESTful API with Go 1.17 (Gin framework)",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 }

@@ -70,7 +70,7 @@ info:
   contact:
     email: navaminsawasdee@gmail.com
     name: Mr.Navamin Sawasdee
-  description: Demoapp develop a RESTful API with Go 1.18 (Gin framework)
+  description: Demoapp develop a RESTful API with Go 1.17 (Gin framework)
   license:
     name: Copyright © 2022 By Navamin Sawasdee. All rights reserved.
   title: Demoapp API
