@@ -7,22 +7,23 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/go-redis/redis/v8"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/gomail.v2"
+
+	"github.com/go-redis/redis/v8"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
+	"github.com/joho/godotenv"
 )
 
 var (
-	DB     *gorm.DB
 	ctx    = context.Background()
+	DB     *gorm.DB
 	rdb    *redis.Client
 	Mailer *gomail.Dialer
 )
 
-func ConnectMysql() {
+func ConnectMySQL() {
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Error("Error loading .env file")
@@ -38,11 +39,27 @@ func ConnectMysql() {
 	DBURL := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", DbUser, DbPassword, DbHost, DbPort, DbName)
 
 	DB, err = gorm.Open(Dbdriver, DBURL)
+
 	if err != nil {
-		log.Printf("Cannot connect to database: %s:%s", DbHost, DbPort)
+		log.WithFields(log.Fields{
+			"driver": Dbdriver,
+			"host":   DbHost,
+			"user":   DbUser,
+			"dbname": DbName,
+			"port":   DbPort,
+		}).Fatal(err)
+		fmt.Printf("Cannot connect to database: %s:%s\n", DbHost, DbPort)
 	} else {
-		log.Printf("Successfully connected to database: %s:%s", DbHost, DbPort)
+		log.WithFields(log.Fields{
+			"driver": Dbdriver,
+			"host":   DbHost,
+			"user":   DbUser,
+			"dbname": DbName,
+			"port":   DbPort,
+		}).Info("Successfully connected to database")
+		fmt.Printf("Successfully connected to database: %s:%s\n", DbHost, DbPort)
 	}
+
 }
 
 func ConnectRedis() {
