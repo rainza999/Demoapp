@@ -20,8 +20,6 @@ RUN apk update && \
 WORKDIR /go/src/resume
 
 #COPY CODE INTO WORKSPACE
-# COPY go.mod .
-# COPY go.sum .
 COPY .env .
 COPY assets .
 COPY views .
