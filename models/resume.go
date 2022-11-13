@@ -111,11 +111,11 @@ func HealthCheck(host string) Powerby {
 	p := Powerby{}
 	p.Application = "DEMO API V1"
 	p.Version = "v1.0.0."
-	p.Released = "2022-06-18"
+	p.Released = "2022-11-11"
 	p.Documentation = url
 	p.Licensed = "Copyright © 2022 By Navamin Sawasdee. All rights reserved."
 	p.CreatedBy = powerby
-	p.Other = "Developing a RESTful API with Go 1.18 and Gin Framework"
+	p.Other = "Developing a RESTful API with Go 1.17 and Gin Framework"
 
 	return p
 }
@@ -167,7 +167,7 @@ func PersonalInfo(host string) Personal {
 	var personal Personal
 
 	personal.Name = "Navamin Sawasdee"
-	personal.Newjob = "Software Developer"
+	personal.Newjob = "Senior Software Engineer(Golang)"
 	personal.Birthday = "7 June 1991"
 	personal.Website = host
 	personal.Tel = "082-789-3384"
@@ -175,7 +175,7 @@ func PersonalInfo(host string) Personal {
 	personal.Age = 31
 	personal.Degree = "Bachelor of Science(B.Sc.)"
 	personal.Email = "navaminsawasdee@gmail.com"
-	personal.Job = "Software Developer"
+	personal.Job = "Senior Software Engineer"
 	personal.Img = "assets/img/IMG_9218.jpg"
 	return personal
 }
@@ -183,10 +183,20 @@ func PersonalInfo(host string) Personal {
 func ExperienceInfo() []Experience {
 	var ex = []Experience{
 		{
+			Organization: "T.N. INCORPORATION LTD, Thailand",
+			Job:          "Senior Software Engineer",
+			Sd:           "2022",
+			Ed:           "Present",
+			Detail:       "T.N. was the first Thai company to offer IT consulting specialised in mission-critical, large-scale and complex system. TN is a market leader amongst large-scale banking solution providers with the most market share in Core Banking System implementation.",
+			JobDescription: []Description{
+				{Detail: "Develop Banking system with TN Golang framework"},
+			},
+		},
+		{
 			Organization: "Government Savings Bank(GSB), Thailand",
 			Job:          "Software Developer",
 			Sd:           "2017",
-			Ed:           "Present",
+			Ed:           "2022",
 			Detail:       "Government Savings Bank (GSB) provides savings, credit and other financial services to personal customer group, grassroots and government policy's customer group, and business and public sectors customer group.",
 			JobDescription: []Description{
 				{Detail: "Design and develop Recurring system, Event Management Smart Application, Aoon-i-rak, Children's Day, Salak Management with Laravel framework, Time Attendance API with Gin framework."},
@@ -238,7 +248,7 @@ func EducationInfo() Education {
 
 func AboutInfo() About {
 	var intro = About{
-		Detail1: "Hello, I'm Navamin Sawasdee you can call me Jane. I started working as News Generation Technology at Triple V Broadcast Co., Ltd.(Thairath TV) for about 3 years. I gained a veriety of technical knowledge including memorable experiena there. After that I move to work for Government Savings Bank(GSB). I like critical thinking and solving problems. I can cope with the project with my backend web development experience. However, Learning new things always my favorite, I started programming in PHP but I enjoy Golang the most.",
+		Detail1: "Hello, I'm Navamin Sawasdee you can call me Jane. I started working as News Generation Technology at Triple V Broadcast Co., Ltd.(Thairath TV) for about 3 years. I gained a veriety of technical knowledge including memorable experiena there. After that I move to work for Government Savings Bank(GSB) and T.N. INCORPORATION LTD. I like critical thinking and solving problems. I can cope with the project with my backend web development experience. However, Learning new things always my favorite, I started programming in PHP but I enjoy Golang the most.",
 		Detail2: "I am interested in a Back-End positions mainly involves Go. I'm mostly interested in Microservices, Programming Language Implementations and Cloud Systems. I would like to work in a Krung Thep Maha Nakhon.",
 	}
 	return intro
