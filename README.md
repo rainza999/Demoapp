@@ -6,7 +6,7 @@ I’m developer with 5+ years of experience in designing and developing user int
 # RESTful API for Demo App (2022-11-13)
 
 ## Releases
-* **2022-08-04** V1 Added docker compose and Makefile
+* **2022-11-13** V1 Added docker compose and Makefile
 * **2022-06-28** V1 Release
 
 # Getting started
