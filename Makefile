@@ -1,5 +1,5 @@
 docker_up:
-	docker-compose up --build --force-recreate --no-deps -d api
+	docker compose up --build --force-recreate --no-deps -d api
 	docker-compose up --build --force-recreate --no-deps -d mysql
 	docker-compose up --build --force-recreate --no-deps -d redis
 	docker-compose up --build --force-recreate --no-deps -d nginx
